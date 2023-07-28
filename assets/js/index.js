@@ -7,10 +7,16 @@ document.title = "LogIn Page"
 loginBtn.addEventListener("click", function(){
     let accessUser = usernameEl.value
     let accessPass = passwordEl.value
-    for (let i=0; i<=accounts.length; i++){
-        if(accessUser == accounts[i][0]&& accessPass == accounts[i][1] ){
-            console.log(`welcome ${accessUser}`)
-        }
+    let found = false
+    for (let i in accounts){
+        if(accessUser == accounts[i][0] && accessPass == accounts[i][1] ){
+            alert(`welcome ${accessUser}`)
+            found = true
+            document.write(`<h1 style="text-align:center; color:blue; margin:50px">hello<span style="font-weight:bold; color:red"> ${accessUser.toUpperCase()}</span></h1>`)
+        } 
     }
-
+    if (found == false){
+        alert(`incorrect username or password`)
+        
+    }
 })
